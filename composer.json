@@ -10,11 +10,11 @@
         }
     ],
     "require": {
-        "php": "^7.4.21"
+        "php": "^7.4"
     },
     "autoload": {
         "psr-4": {
-            "Smatechgroup\\Smatpay\\": "src/"
+            "Smatpay\\": "src/"
         }
     },
     "require-dev": {
