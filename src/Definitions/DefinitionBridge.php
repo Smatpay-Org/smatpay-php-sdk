@@ -14,4 +14,36 @@ class DefinitionBridge
             }
         }
     }
+
+    public function getAttributes(): array
+    {
+        $reflect = new \ReflectionClass($this);
+        $props   = $reflect->getProperties(\ReflectionProperty::IS_PUBLIC);
+
+        $properties = [];
+
+        foreach ($props as $property) {
+            $properties[$property->name] = $this->{$property->name};
+        }
+
+        return $properties;
+    }
+
+    public function valuesToArray(): array
+    {
+        $attributes = $this->getAttributes();
+        $values     = [];
+        foreach ($attributes as $attribute => $defaults) {
+            $this->assignValue($attribute, $values);
+        }
+
+        return $values;
+    }
+
+    private function assignValue($attribute, &$values): void
+    {
+        $values[$attribute] = $this->{$attribute};
+    }
+
+
 }

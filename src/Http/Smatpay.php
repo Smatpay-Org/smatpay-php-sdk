@@ -10,18 +10,12 @@ use Smatpay\Gateway\ZimSwitch;
 
 final class Smatpay
 {
-    private $walletName;
-    public function __construct($walletName)
-    {
-        $this->walletName = $walletName;
-    }
-
     /**
      * @throws PaymentGatewayNotFound
      */
-    public function getInstance(): PaymentGatewayInterface
+    public static function getInstance($walletName): PaymentGatewayInterface
     {
-        switch ($this->walletName) {
+        switch ($walletName) {
             case 'innbucks':
                 return new Innbucks();
             case 'zimswitch':
@@ -29,7 +23,7 @@ final class Smatpay
             case 'ecocash':
                 return new Ecocash();
             default:
-                throw new PaymentGatewayNotFound($this->walletName);
+                throw new PaymentGatewayNotFound($walletName);
         }
     }
 }
