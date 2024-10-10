@@ -19,7 +19,7 @@ final class Smatpay
     /**
      * @throws PaymentGatewayNotFound
      */
-    private function getInstance(): PaymentGatewayInterface
+    public function getInstance(): PaymentGatewayInterface
     {
         switch ($this->walletName) {
             case 'innbucks':
