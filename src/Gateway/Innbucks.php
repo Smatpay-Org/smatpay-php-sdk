@@ -5,7 +5,6 @@ namespace Smatpay\Gateway;
 use Smatpay\Base\PaymentProvider;
 use Smatpay\Constants\WalletName;
 use Smatpay\Contracts\PaymentGatewayInterface;
-use Smatpay\Definitions\PaymentEnquireBuilder;
 
 final class Innbucks extends PaymentProvider implements PaymentGatewayInterface
 {
