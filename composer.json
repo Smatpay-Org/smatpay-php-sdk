@@ -1,0 +1,24 @@
+{
+    "name": "smatechgroup/smatpay",
+    "description": "Provides a payment gateway for Zimbabwean Payment Providers",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Anesu Paul Ngirande",
+            "email": "anesu@smatechgroup.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4.21"
+    },
+    "autoload": {
+        "psr-4": {
+            "Smatechgroup\\Smatpay\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "minimum-stability": "dev"
+}
