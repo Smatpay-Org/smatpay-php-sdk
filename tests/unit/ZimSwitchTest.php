@@ -1,10 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
+namespace unit;
+
 use PHPUnit\Framework\TestCase;
 use Smatpay\Constants\TestCredentials;
+use Smatpay\Constants\WalletName;
+use Smatpay\Definitions\PaymentPayloadBuilder;
+use Smatpay\Exceptions\PaymentGatewayNotFound;
+use Smatpay\Http\Smatpay;
 
-abstract class SmatpayTestCase extends TestCase
+class ZimSwitchTest extends TestCase
 {
+    /**
+     * @throws PaymentGatewayNotFound
+     */
+    public function testCreatePayment()
+    {
+        $payload = $this->getZimSwitchRequest();
+
+        $instance = Smatpay::getInstance(WalletName::ZIMSWITCH);
+
+        $definition = new PaymentPayloadBuilder($payload);
+
+        $response = $instance->pay($definition, true);
+
+        dd($response);
+
+        $this->assertNotEmpty($response->paymentInitiationResponse->paymentId);
+    }
+
     protected function getInnbucksRequest(): array
     {
         return [
@@ -38,7 +64,7 @@ abstract class SmatpayTestCase extends TestCase
         ];
     }
 
-    protected function getZimSwitchRequest()
+    protected function getZimSwitchRequest(): array
     {
         return [
             "merchantId" => TestCredentials::TEST_MERCHANT_ID,

@@ -1,24 +1,30 @@
 <?php
 
+namespace unit;
+
+use helpers\SmatpayTestCase;
 use Smatpay\Constants\WalletName;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\PaymentGatewayNotFound;
 use Smatpay\Http\Smatpay;
-class ZimSwitchTest extends SmatpayTestCase
+
+class EcocashTest extends SmatpayTestCase
 {
     /**
      * @throws PaymentGatewayNotFound
      */
     public function testCreatePayment()
     {
-        $payload = $this->getZimSwitchRequest();
+        $payload = $this->getEcocashRequest();
 
-        $instance = Smatpay::getInstance(WalletName::ZIMSWITCH);
+        $instance = Smatpay::getInstance(WalletName::ECOCASH);
 
         $definition = new PaymentPayloadBuilder($payload);
 
         $response = $instance->pay($definition, true);
 
-        $this->assertNotEmpty($response->paymentInitiationResponse->paymentId);
+        $this->assertEquals('Processing', $response->paymentInitiationResponse->status);
+
+        $this->assertNotNull($response->paymentInitiationResponse->paymentId);
     }
 }

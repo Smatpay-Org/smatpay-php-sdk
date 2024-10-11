@@ -1,5 +1,8 @@
 <?php
 
+namespace unit;
+
+use helpers\SmatpayTestCase;
 use Smatpay\Constants\WalletName;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\PaymentGatewayNotFound;

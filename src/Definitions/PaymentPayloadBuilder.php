@@ -6,27 +6,27 @@ use Smatpay\Base\SmatpayDefinition;
 
 final class PaymentPayloadBuilder extends SmatpayDefinition
 {
-    private $merchantId;
+    public $merchantId;
 
-    private $merchantApiKey;
+    public $merchantApiKey;
 
-    private $merchantKey;
+    public $merchantKey;
 
-    private $paymentDescription;
+    public $paymentDescription;
 
-    private $amount;
+    public $amount;
 
-    private $paymentCurrency;
+    public $paymentCurrency;
 
-    private $payerName;
+    public $payerName;
 
-    private $payerReference;
+    public $payerReference;
 
-    private $payerAccountId;
+    public $payerAccountId;
 
-    private $profileId;
+    public $profileId;
 
-    private $payerMobile;
+    public $payerMobile;
 
     public function __construct(array $attributes = [])
     {

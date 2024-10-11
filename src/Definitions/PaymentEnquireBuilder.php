@@ -1,22 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Smatpay\Definitions;
 
 use Smatpay\Base\SmatpayDefinition;
 
 class PaymentEnquireBuilder extends SmatpayDefinition
 {
-    private $transactionReference;
+    public $transactionReference;
 
-    private $paymentMobile;
+    public $paymentMobile;
 
-    private $transactionCode;
+    public $transactionCode;
 
-    private $merchantId;
+    public $merchantId;
 
-    private $merchantApiKey;
+    public $merchantApiKey;
 
-    private $merchantKey;
+    public $merchantKey;
 
     public function __construct(array $attributes = [])
     {
