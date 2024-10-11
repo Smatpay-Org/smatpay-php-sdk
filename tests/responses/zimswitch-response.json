@@ -1,0 +1,27 @@
+{
+  "auth": {
+    "token": "eyJhbGciOiJIUzUxMiJ9eyJVc2VySWQiOjgxLCJyb2xlcyI6WyJVU0VSIl0sInN1YiI6InByaWRlbW9yZXZpcmlyaSsxQGdtYWlsLmNvbSIsImlhdCI6MTcyODYzDc2NiwiZXhwIjoxNzI4NjUyNzY2fQ.w0i0HF4TTEIRkeaeo912Lt7F3N8sf_4T01B6r00-g1JiVfh7O5-O556vwMIZaZOCGY7jvDXHpYAaEj0Xh-AdJA",
+    "user": {
+      "id": 81,
+      "email": "pridemoreviriri+1@gmail.com",
+      "role": "USER",
+      "token": "eyJhbGciOiJIUzUxMiJ9eyJVc2VySWQiOjgxLCJyb2xlcyI6WyJVU0VSIl0sInN1YiI6InByaWRlbW9yZXZpcmlyaSsxQGdtYWlsLmNvbSIsImlhdCI6MTcyODYzNDc2NiwiZXhwIjoxNzI4NjUyNzY2fQ.w0i0HF4TTEIRkeaeo912Lt7F3N8sf_4T01B6r00-g1JiVfh7O5-O556vwMIZaZOCGY7jvDXHpYAaEj0Xh-AdJA"
+    },
+    "errorResponse": {
+      "errorMessage": null,
+      "statusCode": 0
+    }
+  },
+  "paymentInitiationResponse": {
+    "status": "Success",
+    "paymentTokenExpiry": null,
+    "paymentTokenDescription": "successfully created checkout",
+    "paymentToken": null,
+    "paymentId": "E57C172B208CE03511734D9E4967CD49.uat01-vm-tx04",
+    "paymentRedirectUrl": "https: //dev-payments.smatpay.africa?paymentCode=E57C172B208CE03511734D9E4967CD49.uat01-vm-tx04",
+    "paymentResponseMessage": null,
+    "paymentProcessedDateTime": null,
+    "paymentCode": null,
+    "paymentQrCode": null
+  }
+}

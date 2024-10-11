@@ -20,8 +20,6 @@ abstract class PaymentProvider
 
             $request = array_merge($builder->valuesToArray(), ['walletName' => $this->getWalletName()]);
 
-            dd($builder->valuesToArray());
-
             curl_setopt_array($ch, array(
                 CURLOPT_URL => $isSandbox ? SmatpayURL::SANDBOX_PAYMENT_URL : SmatpayURL::PROD_PAYMENT_URL,
                 CURLOPT_RETURNTRANSFER => true,
