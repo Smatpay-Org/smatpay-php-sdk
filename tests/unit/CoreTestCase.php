@@ -7,7 +7,7 @@ use Smatpay\Constants\TestCredentials;
 
 abstract class CoreTestCase extends TestCase
 {
-    protected function getInnbucksRequest(): array
+    protected function innbucksPayRequest(): array
     {
         return [
             "merchantId" => TestCredentials::TEST_MERCHANT_ID,
@@ -23,7 +23,18 @@ abstract class CoreTestCase extends TestCase
         ];
     }
 
-    protected function getEcocashRequest(): array
+    protected function innbucksEnquireRequest(): array
+    {
+        return [
+            "merchantId" => TestCredentials::TEST_MERCHANT_ID,
+            "merchantApiKey" => TestCredentials::TEST_MERCHANT_API_KEY,
+            "merchantKey" => TestCredentials::TEST_MERCHANT_KEY,
+            "transactionReference" => "DFJG6KTRY894Q2HN0O",
+            "transactionCode" => "701529190",
+        ];
+    }
+
+    protected function ecocashPayRequest(): array
     {
         return [
             "merchantId" => TestCredentials::TEST_MERCHANT_ID,
@@ -33,14 +44,25 @@ abstract class CoreTestCase extends TestCase
             "amount" => "2.00",
             "paymentCurrency" => "USD",
             "payerName" => "Udean Mlambo",
-            "payerMobile" => "0772982812",
+            "payerMobile" => "0789566427",
             "payerReference" => $this->getReference(),
             "payerAccountId" => TestCredentials::TEST_PAYER_ACCOUNT_ID,
             "profileId" => TestCredentials::TEST_PROFILE_ID
         ];
     }
 
-    protected function getZimSwitchRequest(): array
+    protected function ecocashEnquireRequest(): array
+    {
+        return [
+            "merchantId" => TestCredentials::TEST_MERCHANT_ID,
+            "merchantApiKey" => TestCredentials::TEST_MERCHANT_API_KEY,
+            "merchantKey" => TestCredentials::TEST_MERCHANT_KEY,
+            "transactionReference" => "NOY2LXE3RS8179FT6G",
+            "paymentMobile" =>"0789566427",
+        ];
+    }
+
+    protected function zimswitchPayRequest(): array
     {
         return [
             "merchantId" => TestCredentials::TEST_MERCHANT_ID,
@@ -50,10 +72,20 @@ abstract class CoreTestCase extends TestCase
             "amount" => "2.00",
             "paymentCurrency" => "USD",
             "payerName" => "Faison Kagame",
-            "payerMobile" => "0772982812",
+            "payerMobile" => "0789566427",
             "payerReference" => $this->getReference(),
             "payerAccountId" => TestCredentials::TEST_PAYER_ACCOUNT_ID,
             "profileId" => TestCredentials::TEST_PROFILE_ID
+        ];
+    }
+
+    protected function zimswitchEnquireRequest(): array
+    {
+        return [
+            "merchantId" => TestCredentials::TEST_MERCHANT_ID,
+            "merchantApiKey" => TestCredentials::TEST_MERCHANT_API_KEY,
+            "merchantKey" => TestCredentials::TEST_MERCHANT_KEY,
+            "transactionReference" => "Z4X7VH180J2OT6SYQD",
         ];
     }
 
