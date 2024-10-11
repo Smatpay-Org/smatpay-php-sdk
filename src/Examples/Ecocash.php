@@ -27,11 +27,16 @@ class Ecocash
             ->setMerchantKey(TestCredentials::TEST_MERCHANT_KEY)
             ->setPaymentDescription("Test Payment")
             ->setPaymentCurrency("USD")
-            ->setPayerName("Anesu Ngirande")
+            ->setPayerName("Rudairo Ngirande")
             ->setPayerReference(substr(str_shuffle("ABCDEFGHIJKLMNOQPRSTUVWXYZ1234567890"), 0, 12))
             ->setPayerAccountId(36)
-            ->setPayerMobile("0772111000")
+            ->setPayerMobile("0789566427")
             ->setProfileId(48);
+
+        /*
+         * See tests/examples/ecocash.json
+         * to see the structure of a successful request
+         * */
 
         $response = $instance->pay($definition, true);
     }
@@ -47,9 +52,9 @@ class Ecocash
 
         $definition
             ->setTransactionReference($transactionReference)
-            ->setMerchantId("811725368424207")
-            ->setMerchantApiKey("uZesFWCWdSy9lKyczSyXb")
-            ->setMerchantKey("47e7131a-17de-471c-85cc-67e1c36cda0d");
+            ->setMerchantId(TestCredentials::TEST_MERCHANT_ID)
+            ->setMerchantApiKey(TestCredentials::TEST_MERCHANT_API_KEY)
+            ->setMerchantKey(TestCredentials::TEST_MERCHANT_KEY);
 
         $response = $instance->enquire($definition, true);
     }

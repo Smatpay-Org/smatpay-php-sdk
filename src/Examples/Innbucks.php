@@ -27,7 +27,7 @@ class Innbucks
             ->setMerchantKey(TestCredentials::TEST_MERCHANT_KEY)
             ->setPaymentDescription("Test Payment")
             ->setPaymentCurrency("USD")
-            ->setPayerName("Anesu Ngirande")
+            ->setPayerName("Rudairo Ngirande")
             ->setPayerReference(substr(str_shuffle("ABCDEFGHIJKLMNOQPRSTUVWXYZ1234567890"), 0, 12))
             ->setPayerAccountId(36)
             ->setProfileId(48);
@@ -46,10 +46,10 @@ class Innbucks
 
         $definition
             ->setTransactionReference($transactionReference)
-            ->setMerchantId("811725368424207")
             ->setTransactionCode($transactionCode)
-            ->setMerchantApiKey("uZesFWCWdSy9lKyczSyXb")
-            ->setMerchantKey("47e7131a-17de-471c-85cc-67e1c36cda0d");
+            ->setMerchantId(TestCredentials::TEST_MERCHANT_ID)
+            ->setMerchantApiKey(TestCredentials::TEST_MERCHANT_API_KEY)
+            ->setMerchantKey(TestCredentials::TEST_MERCHANT_KEY);
 
         $response = $instance->enquire($definition, true);
     }
