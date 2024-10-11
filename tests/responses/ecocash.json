@@ -1,0 +1,27 @@
+{
+  "auth": {
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJVc2VySWQiOjgxLCJyb2xlcyI6WyJVU0VSIl0sInN1YiI6InByaWRlbW9yZXZpcmlyaSsxQGdtYWlsLmNvbSIsImlhdCI6MTcyODYzNjAyNCwiZXhwIjoxNzI4NjU0MDI0fQ.GS6NIiCGUqxgOB125ur9XhcxgtomQyoxjcF7irJK88lJHPxGD_unHHJRYPpdrLO7gQmnk7Ra5CJnLIvYGqeq1Q",
+    "user": {
+      "id": 81,
+      "email": "pridemoreviriri+1@gmail.com",
+      "role": "USER",
+      "token": "eyJhbGciOiJIUzUxMiJ9.eyJVc2VySWQiOjgxLCJyb2xlcyI6WyJVU0VSIl0sInN1YiI6InByaWRlbW9yZXZpcmlyaSsxQGdtYWlsLmNvbSIsImlhdCI6MTcyODYzNjAyNCwiZXhwIjoxNzI4NjU0MDI0fQ.GS6NIiCGUqxgOB125ur9XhcxgtomQyoxjcF7irJK88lJHPxGD_unHHJRYPpdrLO7gQmnk7Ra5CJnLIvYGqeq1Q"
+    },
+    "errorResponse": {
+      "errorMessage": null,
+      "statusCode": 0
+    }
+  },
+  "paymentInitiationResponse": {
+    "status": "Success",
+    "paymentTokenExpiry": "",
+    "paymentTokenDescription": "The payment is being processed enter pin on next prompt!",
+    "paymentToken": "",
+    "paymentId": "j7wq285t6ibkevdsol",
+    "paymentRedirectUrl": "",
+    "paymentResponseMessage": null,
+    "paymentProcessedDateTime": null,
+    "paymentCode": null,
+    "paymentQrCode": null
+  }
+}

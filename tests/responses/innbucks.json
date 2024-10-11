@@ -1,0 +1,27 @@
+{
+  "auth": {
+    "token": "eyJhbGciOiJIUzUxMiJ9eyJVc2VySWQiOjgxLCJyb2xlcyI6WyJVU0VSIl0sInN1YiI6InByaWRlbW9yZXZpcmlyaSsxQGdtYWlsLmNvbSIsImlhdCI6MTcyODYzNjM4MCwiZXhwIjoxNzI4NjU0MzgwfQ.lG7m5EOxziwaFInw_ORvLeOt5UhGgthzUD1wtzJNimzpAwgJHr7UnbcoRR-HPliM4CCZNo7bqlbmPKUh6MOgkg",
+    "user": {
+      "id": 81,
+      "email": "pridemoreviriri+1@gmail.com",
+      "role": "USER",
+      "token": "eyJhbGciOiJIUzUxMiJ9eyJVc2VySWQiOjgxLCJyb2xlcyI6WyJVU0VSIl0sInN1YiI6InByaWRlbW9yZXZpcmlyaSsxQGdYWlsLmNvbSIsImlhdCI6MTcyODYzNjM4MCwiZXhwIjoxNzI4NjU0MzgwfQ.lG7m5EOxziwaFInw_ORvLeOt5UhGgthzUD1wtzJNimzpAwgJHr7UnbcoRR-HPliM4CCZNo7bqlbmPKUh6MOgkg"
+    },
+    "errorResponse": {
+      "errorMessage": null,
+      "statusCode": 0
+    }
+  },
+  "paymentInitiationResponse": {
+    "status": "00",
+    "paymentTokenExpiry": "2024-10-11T11: 01: 20.000+02: 00",
+    "paymentTokenDescription": "Request successful",
+    "paymentToken": "eyJhbGciOiJIUzUxMiJ9eyJqdGkiOiI1YzYyOTI0ZC0yMmQ3LTQ0MmUtOWIyOS01YzVkNWM2NDIwNjkiLCJzdWIiOiJTbWF0ZWNoR3JvdXBDbGllbnQxQ090b2l4WTpjOTkwMmE1NC1mMTE3LTRhMGQtOWZhMy00MzExZTdlMjQ5ZWUiLCJpcCI6IjY1LjEwOC43NS42OSIsInVzZXJUeXBlIjoiTUVSQ0hBTlQiLCJjaGFubmVsIjoiQVBJIiwiaXNzIjoiQVBJIEdhdGV3YXkiLCJpYXQiOjE3Mjg2MzYzODAsImV4cCI6MTcyODYzNzI4MCwic3VwcG9ydGVkVHJhblR5cGVzIjpbIkNPREVfUEFZTUVOVCJdLCJhY2NvdW50IjoiMjAwNDAwMzcyNDgwNCJ9.E88x2ghU3T_QH5UZObciRtbivvS0t2b2w4_KcefDqOMFhMs-r4vQjAXuqdG4bLbwBAkdS3CkdSHIM3nWkyOiww",
+    "paymentId": null,
+    "paymentRedirectUrl": null,
+    "paymentResponseMessage": "Approved or completed successfully",
+    "paymentProcessedDateTime": "2024-10-11 12: 46: 21.394",
+    "paymentCode": "701529190",
+    "paymentQrCode": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsAQAAAABRBrPYAAABKElEQVR4Xu3XMQ6DMAwFUDNxjByVHJUjdGQi5dsmUKtW6k1y\/9DBPbzZKG00j7JTWLlachCyELIQshCyELIQr5ji3hKW2Vqy9CqFwayPGZvrRY8zSOezg2yJFaxmGrLsgHsjuwShroti+w6tr3sA2T5THM0daA3yFKYeEzg8AJZHntI3ZtHyELpL8yW5Sua8DrN44qDLI8hXsJPqe2TsVeyVIbF6LKs6bbuHw9ZBtPtoDTjmyko6RNZJtuWJTLqgeujL6tgniyL9aApSMEoWSZbtIPmopc4rK3NhslSmO1k+0Zw2MC5QZbEKq6K2pflN7mHLJn5QXYpE\/9fh1oPWRLT+LLwOGPq5fVB9g8mHixLZF+WDZAlsXchCyELIQshCyELIQv5MbsDqzOqYi+QNosAAAAASUVORK5CYII="
+  }
+}

@@ -1,14 +1,14 @@
 <?php
 
-namespace unit;
+namespace KTest\unit;
 
-use helpers\SmatpayTestCase;
+use KTest\unit\CoreTestCase;
 use Smatpay\Constants\WalletName;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\PaymentGatewayNotFound;
 use Smatpay\Http\Smatpay;
 
-class InnbucksTest extends SmatpayTestCase
+class InnbucksTest extends CoreTestCase
 {
     /**
      * @throws PaymentGatewayNotFound
@@ -28,5 +28,9 @@ class InnbucksTest extends SmatpayTestCase
         $this->assertNotNull($response->paymentInitiationResponse->paymentQrCode);
 
         $this->assertNotEmpty($response->paymentInitiationResponse->paymentCode);
+
+        $this->assertGreaterThan(8, strlen($response->paymentInitiationResponse->paymentCode));
+
+        $this->assertGreaterThan(200, strlen($response->paymentInitiationResponse->paymentQrCode));
     }
 }

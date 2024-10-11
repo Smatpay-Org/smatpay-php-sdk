@@ -46,7 +46,7 @@ abstract class PaymentProvider
 
             curl_close($ch);
 
-            return json_encode($response);
+            return json_decode($response);
         } catch (\Exception $exception) {
             throw new PaymentProcessingFailed($exception->getMessage());
         }

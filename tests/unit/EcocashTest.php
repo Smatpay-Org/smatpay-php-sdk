@@ -1,14 +1,13 @@
 <?php
 
-namespace unit;
+namespace KTest\unit;
 
-use helpers\SmatpayTestCase;
 use Smatpay\Constants\WalletName;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\PaymentGatewayNotFound;
 use Smatpay\Http\Smatpay;
 
-class EcocashTest extends SmatpayTestCase
+class EcocashTest extends CoreTestCase
 {
     /**
      * @throws PaymentGatewayNotFound
@@ -23,8 +22,10 @@ class EcocashTest extends SmatpayTestCase
 
         $response = $instance->pay($definition, true);
 
-        $this->assertEquals('Processing', $response->paymentInitiationResponse->status);
+        $this->assertEquals('success', strtolower($response->paymentInitiationResponse->status));
 
         $this->assertNotNull($response->paymentInitiationResponse->paymentId);
+
+        $this->assertStringContainsStringIgnoringCase('prompt', $response->paymentInitiationResponse->paymentTokenDescription);
     }
 }
