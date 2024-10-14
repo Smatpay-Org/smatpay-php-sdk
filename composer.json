@@ -28,5 +28,5 @@
         "phpunit/phpunit": "*",
         "symfony/var-dumper": "*"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
