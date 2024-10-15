@@ -99,7 +99,7 @@ abstract class PaymentProvider
     /**
      * @throws TokenGenerationFailed
      */
-    private function getAuthenticationToken(PaymentPayloadBuilder $builder, bool $isSandbox)
+    private function getAuthenticationToken($builder, bool $isSandbox)
     {
         try {
             $ch = curl_init();
