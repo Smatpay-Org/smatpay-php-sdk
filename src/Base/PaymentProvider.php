@@ -3,6 +3,7 @@
 namespace Smatpay\Base;
 
 use Smatpay\Constants\SmatpayURL;
+use Smatpay\Definitions\BulkPaymentBuilder;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\EnquireFailed;
 use Smatpay\Exceptions\PaymentProcessingFailed;
@@ -10,6 +11,48 @@ use Smatpay\Exceptions\TokenGenerationFailed;
 
 abstract class PaymentProvider
 {
+    /**
+     * @throws PaymentProcessingFailed
+     */
+    public function bulk(BulkPaymentBuilder $builder, $isSandbox)
+    {
+        try {
+            $ch = curl_init();
+
+            $request = array_merge($builder->valuesToArray(), ['walletName' => $this->getWalletName()]);
+
+            curl_setopt_array($ch, array(
+                CURLOPT_URL => $isSandbox ? SmatpayURL::SANDBOX_BULK_PAYMENT_URL : SmatpayURL::PROD_BULK_PAYMENT_URL,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_SSL_VERIFYHOST => 0,
+                CURLOPT_SSL_VERIFYPEER => 0,
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => json_encode($request),
+                CURLOPT_HTTPHEADER => array(
+                    'Content-Type: application/json'
+                ),
+            ));
+
+            $response = curl_exec($ch);
+
+            if (!$response) {
+                curl_close($ch);
+                throw new PaymentProcessingFailed(curl_error($ch));
+            }
+
+            curl_close($ch);
+
+            return json_decode($response);
+        } catch (\Exception $exception) {
+            throw new PaymentProcessingFailed($exception->getMessage());
+        }
+    }
+
     /**
      * @throws PaymentProcessingFailed
      */

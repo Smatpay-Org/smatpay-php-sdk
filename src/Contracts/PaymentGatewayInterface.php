@@ -2,6 +2,7 @@
 
 namespace Smatpay\Contracts;
 
+use Smatpay\Definitions\BulkPaymentBuilder;
 use Smatpay\Definitions\PaymentEnquireBuilder;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 
@@ -11,5 +12,5 @@ interface PaymentGatewayInterface
 
     public function enquire(PaymentEnquireBuilder $payload, bool $isSandbox);
 
-    public function bulk(PaymentEnquireBuilder $payload, bool $isSandbox);
+    public function bulk(BulkPaymentBuilder $payload, bool $isSandbox);
 }
