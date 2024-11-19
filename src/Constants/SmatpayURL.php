@@ -16,4 +16,7 @@ class SmatpayURL
 
     const PROD_AUTH_URL = 'https://smatpay.africa:8443/auth/authenticate/sandbox/merchant';
 
+    const SANDBOX_BULK_PAYMENT_URL = "https://dev.smatpay.africa:8443/sandbox/init/authenticate/merchant/bulkWallet";
+
+    const PROD_BULK_PAYMENT_URL = "https://smatpay.africa:8443/init/authenticate/merchant/bulkWallet";
 }
