@@ -4,6 +4,7 @@ namespace Smatpay\Examples;
 
 use Smatpay\Constants\TestCredentials;
 use Smatpay\Constants\WalletName;
+use Smatpay\Definitions\BulkPaymentBuilder;
 use Smatpay\Definitions\PaymentEnquireBuilder;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\PaymentGatewayNotFound;
@@ -57,5 +58,14 @@ class Ecocash
             ->setMerchantKey(TestCredentials::TEST_MERCHANT_KEY);
 
         $response = $instance->enquire($definition, true);
+    }
+
+    public function bulk_payment_example()
+    {
+        $instance = Smatpay::getInstance(WalletName::ECOCASH);
+
+        $definition = new BulkPaymentBuilder();
+
+        $response = $instance->bulk($definition, true);
     }
 }

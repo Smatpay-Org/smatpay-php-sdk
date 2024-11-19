@@ -28,6 +28,8 @@ class BulkPaymentBuilder extends SmatpayDefinition
 
      public $walletName;
 
+     public $payerMobile;
+
      public $profileId;
 
      public $dynamicPaidList;
@@ -254,6 +256,24 @@ class BulkPaymentBuilder extends SmatpayDefinition
             "dynamicMerchantId" => $dynamicMerchantId,
             "dynamicPayoutPercentage" => $dynamicPayoutPercentage
         ];
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPayerMobile()
+    {
+        return $this->payerMobile;
+    }
+
+    /**
+     * @param mixed $payerMobile
+     * @return BulkPaymentBuilder
+     */
+    public function setPayerMobile($payerMobile)
+    {
+        $this->payerMobile = $payerMobile;
         return $this;
     }
 
