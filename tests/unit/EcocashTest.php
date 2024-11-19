@@ -3,6 +3,7 @@
 namespace KTest\unit;
 
 use Smatpay\Constants\WalletName;
+use Smatpay\Definitions\BulkPaymentBuilder;
 use Smatpay\Definitions\PaymentEnquireBuilder;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\PaymentGatewayNotFound;
@@ -48,5 +49,15 @@ class EcocashTest extends CoreTestCase
         $this->assertNotNull($response->paymentInitiationResponse->paymentId);
 
         $this->assertStringContainsStringIgnoringCase('prompt', $response->paymentInitiationResponse->paymentTokenDescription);
+    }
+    public function test_bulk_transaction()
+    {
+        $payload = $this->ecocashBulkTransactionRequest();
+
+        $instance = Smatpay::getInstance(WalletName::ECOCASH);
+
+        $definition = new BulkPaymentBuilder($payload);
+
+        $response = $instance->bulk($definition, true);
     }
 }
