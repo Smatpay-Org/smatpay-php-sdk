@@ -31,9 +31,8 @@ class FastCheckOut extends AuthorizationProvider
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => json_encode($builder->valuesToArray()),
+                CURLOPT_POSTFIELDS => $builder->valuesToArray(),
                 CURLOPT_HTTPHEADER => array(
-                    'Content-Type: application/json',
                     'Authorization: Bearer '.$token
                 ),
             ));
