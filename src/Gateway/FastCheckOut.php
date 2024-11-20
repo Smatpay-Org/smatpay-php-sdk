@@ -2,19 +2,23 @@
 
 namespace Smatpay\Gateway;
 
+use Smatpay\Base\AuthorizationProvider;
 use Smatpay\Constants\SmatpayURL;
+use Smatpay\Definitions\AuthenticationBuilder;
 use Smatpay\Definitions\FastCheckoutBuilder;
 use Smatpay\Exceptions\PaymentProcessingFailed;
 
-class FastCheckOut
+class FastCheckOut extends AuthorizationProvider
 {
     /**
      * @throws PaymentProcessingFailed
      */
-    public function checkout(FastCheckoutBuilder $builder, $isSandbox)
+    public function checkout(FastCheckoutBuilder $builder, AuthenticationBuilder $authenticationBuilder, $isSandbox)
     {
         try {
             $ch = curl_init();
+
+            $token = $this->getAuthenticationToken($authenticationBuilder, $isSandbox);
 
             curl_setopt_array($ch, array(
                 CURLOPT_URL => $isSandbox ? SmatpayURL::SANDBOX_FAST_CHECKOUT : SmatpayURL::PROD_FAST_CHECKOUT,
@@ -29,7 +33,8 @@ class FastCheckOut
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => json_encode($builder->valuesToArray()),
                 CURLOPT_HTTPHEADER => array(
-                    'Content-Type: application/json'
+                    'Content-Type: application/json',
+                    'Authorization: Bearer '.$token
                 ),
             ));
 
