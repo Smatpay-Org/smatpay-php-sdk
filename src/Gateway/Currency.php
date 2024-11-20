@@ -6,7 +6,7 @@ use Smatpay\Constants\SmatpayURL;
 
 class Currency
 {
-    public function all(bool $isSandbox)
+    public function all()
     {
         $curl = curl_init();
 
