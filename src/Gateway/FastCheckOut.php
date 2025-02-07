@@ -13,7 +13,7 @@ class FastCheckOut extends AuthorizationProvider
     /**
      * @throws PaymentProcessingFailed
      */
-    public function checkout(FastCheckoutBuilder $builder, AuthenticationBuilder $authenticationBuilder, $isSandbox)
+    public function checkout(FastCheckoutBuilder $builder, AuthenticationBuilder $authenticationBuilder, $isSandbox = false)
     {
         try {
             $ch = curl_init();
