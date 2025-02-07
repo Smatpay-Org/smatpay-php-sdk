@@ -10,16 +10,16 @@ use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\PaymentGatewayNotFound;
 use Smatpay\Http\Smatpay;
 
-class ZimSwitchTest extends CoreTestCase
+class VisaTest extends CoreTestCase
 {
     /**
      * @throws PaymentGatewayNotFound
      */
     public function test_pay_request()
     {
-        $payload = $this->zimswitchPayRequest();
+        $payload = $this->visaPayRequest();
 
-        $instance = Smatpay::getInstance(WalletName::ZIMSWITCH);
+        $instance = Smatpay::getInstance(WalletName::VISA);
 
         $definition = new PaymentPayloadBuilder($payload);
 
@@ -37,9 +37,9 @@ class ZimSwitchTest extends CoreTestCase
      */
     public function test_enquire_transaction()
     {
-        $payload = $this->zimswitchEnquireRequest();
+        $payload = $this->visaEnquireRequest();
 
-        $instance = Smatpay::getInstance(WalletName::ZIMSWITCH);
+        $instance = Smatpay::getInstance(WalletName::VISA);
 
         $definition = new PaymentEnquireBuilder($payload);
 

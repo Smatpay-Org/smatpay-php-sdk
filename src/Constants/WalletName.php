@@ -9,4 +9,8 @@ class WalletName
     const ECOCASH = 'ecocash';
 
     const ZIMSWITCH = 'zimswitch';
+
+    const VISA = 'visa';
+
+    const MASTERCARD = 'mastercard';
 }

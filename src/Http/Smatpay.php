@@ -6,6 +6,8 @@ use Smatpay\Contracts\PaymentGatewayInterface;
 use Smatpay\Exceptions\PaymentGatewayNotFound;
 use Smatpay\Gateway\Ecocash;
 use Smatpay\Gateway\Innbucks;
+use Smatpay\Gateway\Mastercard;
+use Smatpay\Gateway\Visa;
 use Smatpay\Gateway\ZimSwitch;
 
 final class Smatpay
@@ -22,6 +24,10 @@ final class Smatpay
                 return new ZimSwitch();
             case 'ecocash':
                 return new Ecocash();
+            case 'visa':
+                return new Visa();
+            case 'mastercard':
+                return new Mastercard();
             default:
                 throw new PaymentGatewayNotFound($walletName);
         }

@@ -10,7 +10,7 @@ abstract class AuthorizationProvider
     /**
      * @throws TokenGenerationFailed
      */
-    public function getAuthenticationToken($builder, bool $isSandbox)
+    public function getAuthenticationToken($builder, bool $isSandbox = false)
     {
         try {
             $ch = curl_init();

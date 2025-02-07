@@ -7,14 +7,13 @@ use Smatpay\Definitions\BulkPaymentBuilder;
 use Smatpay\Definitions\PaymentPayloadBuilder;
 use Smatpay\Exceptions\EnquireFailed;
 use Smatpay\Exceptions\PaymentProcessingFailed;
-use Smatpay\Exceptions\TokenGenerationFailed;
 
 abstract class PaymentProvider extends AuthorizationProvider
 {
     /**
      * @throws PaymentProcessingFailed
      */
-    public function bulk(BulkPaymentBuilder $builder, $isSandbox)
+    public function bulk(BulkPaymentBuilder $builder, $isSandbox = false)
     {
         try {
             $ch = curl_init();
@@ -56,7 +55,7 @@ abstract class PaymentProvider extends AuthorizationProvider
     /**
      * @throws PaymentProcessingFailed
      */
-    public function pay(PaymentPayloadBuilder $builder, $isSandbox)
+    public function pay(PaymentPayloadBuilder $builder, $isSandbox = false)
     {
         try {
             $ch = curl_init();
@@ -98,7 +97,7 @@ abstract class PaymentProvider extends AuthorizationProvider
     /**
      * @throws EnquireFailed
      */
-    public function enquire($transaction, bool $isSandbox)
+    public function enquire($transaction, bool $isSandbox = false)
     {
         try {
             $ch = curl_init();
