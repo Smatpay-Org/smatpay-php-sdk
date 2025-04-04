@@ -21,7 +21,7 @@ class FastCheckOut extends AuthorizationProvider
             $token = $this->getAuthenticationToken($authenticationBuilder, $isSandbox);
 
             curl_setopt_array($ch, array(
-                CURLOPT_URL => $isSandbox ? SmatpayURL::SANDBOX_FAST_CHECKOUT : SmatpayURL::PROD_FAST_CHECKOUT,
+                CURLOPT_URL => $this->getApiUrl($authenticationBuilder, $isSandbox),
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_SSL_VERIFYHOST => 0,
@@ -50,5 +50,14 @@ class FastCheckOut extends AuthorizationProvider
         } catch (\Exception $exception) {
             throw new PaymentProcessingFailed($exception->getMessage());
         }
+    }
+
+    private function getApiUrl(AuthenticationBuilder $authenticationBuilder, bool $isSandbox)
+    {
+        if (! empty($authenticationBuilder->getApiUrl())) {
+            return $authenticationBuilder->getApiUrl();
+        }
+
+        return $isSandbox ? SmatpayURL::SANDBOX_FAST_CHECKOUT : SmatpayURL::PROD_FAST_CHECKOUT;
     }
 }
