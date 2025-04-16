@@ -31,6 +31,7 @@ class Visa
             ->setPaymentCurrency("USD")
             ->setPayerName("Rudairo Ngirande")
             ->setPayerReference($prefix)
+            ->setApiUrl("https://staging.smatpay.africa/init/authenticate/merchant/wallet")
             ->setPayerAccountId(36)
             ->setProfileId(48);
 

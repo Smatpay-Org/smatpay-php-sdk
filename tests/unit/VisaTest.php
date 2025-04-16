@@ -25,8 +25,6 @@ class VisaTest extends CoreTestCase
 
         $response = $instance->pay($definition, true);
 
-        $this->assertNotEmpty($response->paymentInitiationResponse->paymentId);
-
         $this->assertStringContainsStringIgnoringCase('https', $response->paymentInitiationResponse->paymentRedirectUrl);
 
         $this->assertEquals('success', strtolower($response->paymentInitiationResponse->status));

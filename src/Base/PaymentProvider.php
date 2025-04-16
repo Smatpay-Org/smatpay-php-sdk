@@ -63,7 +63,7 @@ abstract class PaymentProvider extends AuthorizationProvider
             $request = array_merge($builder->valuesToArray(), ['walletName' => $this->getWalletName()]);
 
             curl_setopt_array($ch, array(
-                CURLOPT_URL => $isSandbox ? SmatpayURL::SANDBOX_PAYMENT_URL : SmatpayURL::PROD_PAYMENT_URL,
+                CURLOPT_URL => $this->getApiUrl($builder, $isSandbox),
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_SSL_VERIFYHOST => 0,
@@ -136,6 +136,15 @@ abstract class PaymentProvider extends AuthorizationProvider
         } catch (\Exception $exception) {
             throw new EnquireFailed($exception->getMessage());
         }
+    }
+
+    private function getApiUrl(PaymentPayloadBuilder $builder, $isSandbox = false)
+    {
+        if (! empty($builder->getApiUrl())) {
+            return $builder->getApiUrl();
+        }
+
+        return $isSandbox ? SmatpayURL::SANDBOX_PAYMENT_URL : SmatpayURL::PROD_PAYMENT_URL;
     }
 
     abstract protected function getWalletName(): string;

@@ -28,9 +28,29 @@ final class PaymentPayloadBuilder extends SmatpayDefinition
 
     public $payerMobile;
 
+    public $apiUrl;
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApiUrl()
+    {
+        return $this->apiUrl;
+    }
+
+    /**
+     * @param mixed $apiUrl
+     */
+    public function setApiUrl($apiUrl)
+    {
+        $this->apiUrl = $apiUrl;
+
+        return $this;
     }
 
     /**
