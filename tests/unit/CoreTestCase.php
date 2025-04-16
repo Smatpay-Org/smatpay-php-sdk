@@ -3,7 +3,7 @@
 namespace KTest\unit;
 
 use PHPUnit\Framework\TestCase;
-use Smatpay\Constants\TestCredentials;
+use Smatpay\Constants\ExampleTestCredentials as TestCredentials;
 
 abstract class CoreTestCase extends TestCase
 {
