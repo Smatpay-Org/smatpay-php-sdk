@@ -20,6 +20,8 @@ abstract class PaymentProvider extends AuthorizationProvider
 
             $request = array_merge($builder->valuesToArray(), ['walletName' => $this->getWalletName()]);
 
+            $token = $this->getAuthenticationToken($builder, $isSandbox);
+
             curl_setopt_array($ch, array(
                 CURLOPT_URL => $isSandbox ? SmatpayURL::SANDBOX_BULK_PAYMENT_URL : SmatpayURL::PROD_BULK_PAYMENT_URL,
                 CURLOPT_RETURNTRANSFER => true,
@@ -33,7 +35,8 @@ abstract class PaymentProvider extends AuthorizationProvider
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => json_encode($request),
                 CURLOPT_HTTPHEADER => array(
-                    'Content-Type: application/json'
+                    'Content-Type: application/json',
+                    'Authorization: Bearer ' . $token
                 ),
             ));
 
@@ -62,6 +65,8 @@ abstract class PaymentProvider extends AuthorizationProvider
 
             $request = array_merge($builder->valuesToArray(), ['walletName' => $this->getWalletName()]);
 
+            $token = $this->getAuthenticationToken($builder, $isSandbox);
+
             curl_setopt_array($ch, array(
                 CURLOPT_URL => $this->getApiUrl($builder, $isSandbox),
                 CURLOPT_RETURNTRANSFER => true,
@@ -75,7 +80,8 @@ abstract class PaymentProvider extends AuthorizationProvider
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => json_encode($request),
                 CURLOPT_HTTPHEADER => array(
-                    'Content-Type: application/json'
+                    'Content-Type: application/json',
+                    'Authorization: Bearer ' . $token
                 ),
             ));
 
