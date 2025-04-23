@@ -10,11 +10,11 @@ class SmatpayURL
 
     const SANDBOX_ENQUIRE_URL = 'https://dev.smatpay.africa:8443/sandbox/api/getPaymentDetails';
 
-    const PROD_ENQUIRE_URL = 'https://live.smatpay.africa/sandbox/api/getPaymentDetails';
+    const PROD_ENQUIRE_URL = 'https://live.smatpay.africa/api/getPaymentDetails';
 
     const SANDBOX_AUTH_URL = 'https://dev.smatpay.africa:8443/auth/authenticate/sandbox/merchant';
 
-    const PROD_AUTH_URL = 'https://live.smatpay.africa/auth/authenticate/sandbox/merchant';
+    const PROD_AUTH_URL = 'https://live.smatpay.africa/auth/authenticate/merchant';
 
     const SANDBOX_BULK_PAYMENT_URL = "https://dev.smatpay.africa:8443/sandbox/init/authenticate/merchant/bulkWallet";
 
