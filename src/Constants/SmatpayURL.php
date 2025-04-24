@@ -6,7 +6,7 @@ class SmatpayURL
 {
     const SANDBOX_PAYMENT_URL = 'https://dev.smatpay.africa:8443/sandbox/init/authenticate/merchant/wallet';
 
-    const PROD_PAYMENT_URL = 'https://live.smatpay.africa/sandbox/init/authenticate/merchant/wallet';
+    const PROD_PAYMENT_URL = 'https://live.smatpay.africa/init/authenticate/merchant/wallet';
 
     const SANDBOX_ENQUIRE_URL = 'https://dev.smatpay.africa:8443/sandbox/api/getPaymentDetails';
 
