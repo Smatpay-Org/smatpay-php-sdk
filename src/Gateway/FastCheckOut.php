@@ -33,7 +33,8 @@ class FastCheckOut extends AuthorizationProvider
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => $builder->valuesToArray(),
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: Bearer '.$token
+                    'Authorization: Bearer '.$token,
+                    'Content-Type: application/x-www-form-urlencoded'
                 ),
             ));
 
